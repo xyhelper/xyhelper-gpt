@@ -26,16 +26,18 @@ var (
 					hello.New(),
 				)
 			})
-			s.SetServerRoot("resource/public/static")
+			s.SetServerRoot("resource/public/chat")
 
 			group := s.Group("/")
 			group.GET("/", web.Chat)
 			group.GET("/chat", web.Chat)
 			group.GET("/login", web.Login)
 			group.POST("/login_token", api.LoginToken)
+			group.GET("/auth/logout", auth.LogOut)
 
 			apiGroup := s.Group("/api")
-			apiGroup.POST("/auth/signout", auth.SignOut)
+			apiGroup.POST("/auth/logout", auth.LogOut)
+			apiGroup.GET("/auth/session", auth.Session)
 
 			s.Run()
 
