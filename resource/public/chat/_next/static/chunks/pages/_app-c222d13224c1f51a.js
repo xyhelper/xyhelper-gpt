@@ -22365,7 +22365,7 @@ Reason: ${e}`))
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.ExceptionEndpoint = void 0);
       var o = n(5502);
-      t.ExceptionEndpoint = "https://statsigapi.net/v1/sdk_exception";
+      t.ExceptionEndpoint = "/v1/sdk_exception";
       var s = (function () {
         function e(e) {
           (this.seen = new Set()), (this.sdkKey = e);
@@ -25301,8 +25301,8 @@ Reason: ${e}`))
         (t.LogLevel = void 0);
       var n,
         r,
-        i = "https://featuregates.org/v1/",
-        o = "https://events.statsigapi.net/v1/";
+        i = "/v1/",
+        o = "/v1/";
       ((r = n = t.LogLevel || (t.LogLevel = {}))[(r.NONE = 0)] = "NONE"),
         (r[(r.INFO = 1)] = "INFO"),
         (r[(r.DEBUG = 2)] = "DEBUG");
