@@ -7,7 +7,6 @@ import (
 	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/os/gcmd"
 
-	"xyhelper-gpt/api"
 	"xyhelper-gpt/api/auth"
 	"xyhelper-gpt/api/web"
 	"xyhelper-gpt/internal/controller/hello"
@@ -32,7 +31,8 @@ var (
 			group.GET("/", web.Chat)
 			group.GET("/chat", web.Chat)
 			group.GET("/login", web.Login)
-			group.POST("/login_token", api.LoginToken)
+			group.POST("/login", web.LoginPost)
+
 			group.GET("/auth/logout", auth.LogOut)
 
 			apiGroup := s.Group("/api")
