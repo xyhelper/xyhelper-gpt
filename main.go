@@ -1,13 +1,13 @@
 package main
 
 import (
-	_ "pandora-go/internal/packed"
+	_ "xyhelper-gpt/internal/packed"
 
-	_ "pandora-go/backend-api"
+	_ "xyhelper-gpt/backend-api"
 
 	"github.com/gogf/gf/v2/os/gctx"
 
-	"pandora-go/internal/cmd"
+	"xyhelper-gpt/internal/cmd"
 )
 
 func main() {

@@ -1,7 +1,7 @@
 package auth
 
 import (
-	"pandora-go/config"
+	"xyhelper-gpt/config"
 
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/ghttp"

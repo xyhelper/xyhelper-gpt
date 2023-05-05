@@ -7,10 +7,10 @@ import (
 	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/os/gcmd"
 
-	"pandora-go/api"
-	"pandora-go/api/auth"
-	"pandora-go/api/web"
-	"pandora-go/internal/controller/hello"
+	"xyhelper-gpt/api"
+	"xyhelper-gpt/api/auth"
+	"xyhelper-gpt/api/web"
+	"xyhelper-gpt/internal/controller/hello"
 )
 
 var (

@@ -1,4 +1,4 @@
-module pandora-go
+module xyhelper-gpt
 
 go 1.18
 

@@ -5,7 +5,7 @@ import (
 
 	"github.com/gogf/gf/v2/frame/g"
 
-	v1 "pandora-go/api/hello/v1"
+	v1 "xyhelper-gpt/api/hello/v1"
 )
 
 type Controller struct{}
