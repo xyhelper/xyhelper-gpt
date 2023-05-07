@@ -2,6 +2,5 @@ PORT: 8800
 
 
 
-API_PROXY : http://127.0.0.1:8300
+API_PROXY : https://personalchat.xyhelper.cn
 
-gf docker main.go -p -t xyhelper/xyhelper-gpt:latest
