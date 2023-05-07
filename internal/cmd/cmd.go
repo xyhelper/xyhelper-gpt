@@ -25,7 +25,7 @@ var (
 					hello.New(),
 				)
 			})
-			s.SetServerRoot("resource/public/chat")
+			s.SetServerRoot("resource/public/static")
 
 			group := s.Group("/")
 			group.GET("/", web.Chat)

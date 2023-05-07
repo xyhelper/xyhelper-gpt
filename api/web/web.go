@@ -119,6 +119,7 @@ func LoginPost(r *ghttp.Request) {
 	cli := g.Client()
 	res, err := cli.Post(ctx, config.API_PROXY+"/app/chatgpt/open/check_user", g.Map{
 		"AccessToken": r.Get("password"),
+		"From":        "xyhelper-gpt",
 	})
 	if err != nil {
 		g.Log().Error(ctx, err)
