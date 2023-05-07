@@ -69,13 +69,13 @@ func C(r *ghttp.Request) {
 		"props": {
 			"pageProps": {
 				"user": {
-					"id": "user-HUagcZWRoCLaYBjUWal6Ax9b",
-					"name": "cnlidong@me.com",
-					"email": "cnlidong@me.com",
-					"image": "https://s.gravatar.com/avatar/e3602eeb8e3136bf37808604da5ba1d6?s=480\u0026r=pg\u0026d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fcn.png",
-					"picture": "https://s.gravatar.com/avatar/e3602eeb8e3136bf37808604da5ba1d6?s=480\u0026r=pg\u0026d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fcn.png",
+					"id": "user-xyhelper-gpt",
+					"name": "username@company.com",
+					"email": "username@company.com",
+					"image": "",
+					"picture": "",
 					"idp": "auth0",
-					"iat": 1683124492,
+					"iat": 2683124492,
 					"mfa": false,
 					"groups": [],
 					"intercom_hash": "f4ded2c9ed2ba48edf71cea6c54a290a865faed484eb07c4e663c90c00a66f65"

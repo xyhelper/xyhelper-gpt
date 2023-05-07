@@ -21,8 +21,9 @@ func init() {
 		req := r.Request
 		// 替换 r.URL.Path 中的 /api 为 /backend-api
 		// 例如：/api/auth/session -> /backend-api/auth/session
-		g.Log().Debug(r.GetCtx(), "proxy to "+u.String()+req.URL.Path)
 		req.URL.Path = "/backend-api" + req.URL.Path[4:]
+		g.Log().Debug(r.GetCtx(), "proxy to "+u.String()+req.URL.Path)
+
 		proxy.ServeHTTP(r.Response.Writer.RawWriter(), r.Request)
 	})
 

@@ -1,11 +1,7 @@
-server:
-  address:     ":8000"
-  openapiPath: "/api.json"
-  swaggerPath: "/swagger"
-
-logger:
-  level : "all"
-  stdout: true
+PORT: 8800
 
 
 
+API_PROXY : http://127.0.0.1:8300
+
+gf docker main.go -p -t xyhelper/xyhelper-gpt:latest

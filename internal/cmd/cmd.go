@@ -40,6 +40,9 @@ var (
 			apiGroup := s.Group("/api")
 			apiGroup.POST("/auth/logout", auth.LogOut)
 			apiGroup.GET("/auth/session", auth.Session)
+			PORT := g.Cfg().MustGetWithEnv(ctx, "PORT")
+			g.Log().Debug(ctx, "PORT: "+PORT.String())
+			s.SetPort(PORT.Int())
 
 			s.Run()
 
