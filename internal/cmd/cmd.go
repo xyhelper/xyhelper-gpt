@@ -29,9 +29,11 @@ var (
 
 			group := s.Group("/")
 			group.GET("/", web.Chat)
+			group.GET("/c/:ChatId", web.C)
 			group.GET("/chat", web.Chat)
 			group.GET("/login", web.Login)
 			group.POST("/login", web.LoginPost)
+			// group.GET("/api/auth/session", auth.Session)
 
 			group.GET("/auth/logout", auth.LogOut)
 

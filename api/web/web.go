@@ -14,10 +14,99 @@ func Chat(r *ghttp.Request) {
 		g.Log().Debug(r.GetCtx(), "redirect to login")
 		r.Response.RedirectTo("/login")
 	}
+	props := `
+	{
+		"props": {
+			"pageProps": {
+				"user": {
+					"id": "user-xyhelper-gpt",
+					"name": "username@google.com",
+					"email": "username@google.com",
+					"image": "",
+					"picture": "",
+					"idp": "auth0",
+					"iat": 2683124492,
+					"mfa": false,
+					"groups": [],
+					"intercom_hash": "f4ded2c9ed2ba48edf71cea6c54a290a865faed484eb07c4e663c90c00a66f65"
+				},
+				"serviceStatus": {},
+				"userCountry": "US",
+				"geoOk": true,
+				"serviceAnnouncement": {
+					"public": {},
+					"paid": {}
+				},
+				"isUserInCanPayGroup": true,
+				"_sentryTraceData": "5587bb5fcdfd4227b4acc44dd94e5c61-aea7e0cbd9a18135-1",
+				"_sentryBaggage": "sentry-environment=production,sentry-release=5ec1626698a543712bb2582d8d79cc146ec4f6bd,sentry-transaction=%2F,sentry-public_key=33f79e998f93410882ecec1e57143840,sentry-trace_id=5587bb5fcdfd4227b4acc44dd94e5c61,sentry-sample_rate=1"
+			},
+			"__N_SSP": true
+		},
+		"page": "/",
+		"query": {},
+		"buildId": "tJX3plMSOel4fTSLRuqFc",
+		"isFallback": false,
+		"gssp": true,
+		"scriptLoader": []
+	}
+	`
 	r.Response.WriteTpl("chat.html", g.Map{
-		"pandora_sentry": false,
-		"api_prefix":     "https://ai.fakeopen.com",
-		"props":          `{"buildId": "tTShkecJDS0nIc9faO2vC", "gssp": true, "isFallback": false, "page": "/chat/[[...chatId]]", "props": {"__N_SSP": true, "pageProps": {"geoOk": true, "isUserInCanPayGroup": true, "serviceAnnouncement": {"paid": {}, "public": {}}, "serviceStatus": {}, "user": {"email": "a269@xyhelper.cn", "groups": [], "id": "user-VbBwHhwqj4rez2SD2D2QmZkM", "image": null, "name": "a269@xyhelper.cn", "picture": null}, "userCountry": "US"}}, "query": {}, "scriptLoader": []}`,
+		"props": gjson.New(props),
+	})
+}
+
+func C(r *ghttp.Request) {
+	if r.Cookie.Get("access-token").String() == "" {
+		g.Log().Debug(r.GetCtx(), "redirect to login")
+		r.Response.RedirectTo("/login")
+	}
+	chatId := r.RequestURI[3:]
+
+	g.Log().Debug(r.GetCtx(), "chatId", chatId)
+	props := `
+	{
+		"props": {
+			"pageProps": {
+				"user": {
+					"id": "user-HUagcZWRoCLaYBjUWal6Ax9b",
+					"name": "cnlidong@me.com",
+					"email": "cnlidong@me.com",
+					"image": "https://s.gravatar.com/avatar/e3602eeb8e3136bf37808604da5ba1d6?s=480\u0026r=pg\u0026d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fcn.png",
+					"picture": "https://s.gravatar.com/avatar/e3602eeb8e3136bf37808604da5ba1d6?s=480\u0026r=pg\u0026d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fcn.png",
+					"idp": "auth0",
+					"iat": 1683124492,
+					"mfa": false,
+					"groups": [],
+					"intercom_hash": "f4ded2c9ed2ba48edf71cea6c54a290a865faed484eb07c4e663c90c00a66f65"
+				},
+				"serviceStatus": {},
+				"userCountry": "US",
+				"geoOk": true,
+				"serviceAnnouncement": {
+					"paid": {},
+					"public": {}
+				},
+				"isUserInCanPayGroup": true,
+				"_sentryTraceData": "fd7b1baa0c634c18908f0bc23bb8e4b3-8053d17b31a9be9f-1",
+				"_sentryBaggage": "sentry-environment=production,sentry-release=5ec1626698a543712bb2582d8d79cc146ec4f6bd,sentry-transaction=%2Fc%2F%5BchatId%5D,sentry-public_key=33f79e998f93410882ecec1e57143840,sentry-trace_id=fd7b1baa0c634c18908f0bc23bb8e4b3,sentry-sample_rate=1"
+			},
+			"__N_SSP": true
+		},
+		"page": "/c/[chatId]",
+		"query": {
+			"chatId": "65491826-3180-48c6-b9dd-087e84d4e9df"
+		},
+		"buildId": "tJX3plMSOel4fTSLRuqFc",
+		"isFallback": false,
+		"gssp": true,
+		"scriptLoader": []
+	}
+	`
+	propsJson := gjson.New(props)
+	propsJson.Set("query.chatId", chatId)
+	r.Response.WriteTpl("conversation.html", g.Map{
+		"props": propsJson,
 	})
 }
 

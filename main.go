@@ -5,6 +5,8 @@ import (
 
 	_ "xyhelper-gpt/backend-api"
 
+	_ "xyhelper-gpt/v1"
+
 	"github.com/gogf/gf/v2/os/gctx"
 
 	"xyhelper-gpt/internal/cmd"
