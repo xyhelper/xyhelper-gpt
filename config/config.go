@@ -6,7 +6,8 @@ import (
 )
 
 var (
-	API_PROXY = "http://127.0.0.1:8001"
+	API_PROXY = "https://personalchat.xyhelper.cn"
+	PORT      = 8800
 )
 
 func init() {
@@ -15,5 +16,10 @@ func init() {
 	if apiProxy != "" {
 		API_PROXY = apiProxy
 	}
-	g.Log().Debug(ctx, "API_PROXY: "+API_PROXY)
+	g.Log().Debug(ctx, "API_PROXY: ", API_PROXY)
+	port := g.Cfg().MustGetWithEnv(ctx, "PORT").Int()
+	if port != 0 {
+		PORT = port
+	}
+	g.Log().Debug(ctx, "PORT: ", PORT)
 }

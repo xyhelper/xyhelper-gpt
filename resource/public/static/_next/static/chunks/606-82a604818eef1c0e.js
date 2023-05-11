@@ -3508,7 +3508,7 @@
           g = d.toggleHistoryDisabled,
           x = nV().isOpen,
           v = (0, T.hz)(),
-          b = v.has("data_export_enabled"),
+          b = v.has("data_export_enabledno"),
           y = v.has("data_deletion_enabled"),
           w = (0, eu.kP)().session,
           C = v.has("data_controls_enabled"),
@@ -3569,7 +3569,11 @@
                   children: [
                     (0, p.jsx)("button", {
                       className: C ? "font-medium" : "underline",
-                      onClick: P,
+                      // onClick: P,
+                      // 点击时,打开新的页面
+                      onClick: function () {
+                        window.open("https://xyhelper.cn");
+                      },
                       children: (0, p.jsx)(X.Z, (0, f._)({}, n$.deleteAccount)),
                     }),
                     !(null == w
@@ -8741,7 +8745,7 @@
           },
           placeholder: {
             id: "PromptTextarea.placeholder",
-            defaultMessage: "来说点什么吧...",
+            defaultMessage: "来说点什么吧... (Shift + Enter = 换行)",
             description: "Placeholder text for the input field",
           },
           suggestionTooltip: {
