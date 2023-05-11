@@ -155,11 +155,12 @@ func LoginPost(r *ghttp.Request) {
 	g.Log().Debug(ctx, ExpireTime, gtime.Now())
 	if ExpireTime.Before(gtime.Now()) {
 		r.Response.WriteTpl("login.html", g.Map{
-			"Error": "AccessToken已过期",
+			"Error": "AccessToken已于" + ExpireTime.String() + "过期",
 		})
 		return
 	}
 	r.Cookie.Set("access-token", r.Get("password").String())
+	r.Cookie.Set("access-token-expires", ExpireTime.String())
 	r.Response.RedirectTo("/")
 
 }

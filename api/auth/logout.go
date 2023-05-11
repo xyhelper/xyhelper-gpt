@@ -6,6 +6,7 @@ import (
 
 func LogOut(r *ghttp.Request) {
 	r.Cookie.Remove("access-token")
+	r.Cookie.Remove("access-token-expires")
 	// r.Response.WriteJsonExit(g.Map{
 	// 	"url": "/login",
 	// })

@@ -11,6 +11,7 @@ import (
 func Session(r *ghttp.Request) {
 	ctx := r.GetCtx()
 	token := r.Cookie.Get("access-token")
+	Expires := r.Cookie.Get("access-token-expires")
 	c := g.Client()
 	c.SetHeader("Authorization", "Bearer "+token.String())
 	res, err := c.Post(ctx, config.API_PROXY+"/app/chatgpt/open/get_session", g.Map{
@@ -28,6 +29,6 @@ func Session(r *ghttp.Request) {
 		r.Response.Status = res.StatusCode
 	}
 	resJson := gjson.New(res.ReadAllString())
-
+	resJson.Set("data.user.name", Expires.String())
 	r.Response.WriteJson(resJson.Get("data"))
 }

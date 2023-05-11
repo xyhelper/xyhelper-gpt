@@ -3295,27 +3295,27 @@
       var n$ = (0, Y.vU)({
         settings: {
           id: "settingsModal.settings",
-          defaultMessage: "Settings",
+          defaultMessage: "设置",
           description: "Title for the settings modal",
         },
         theme: {
           id: "settingsModal.theme",
-          defaultMessage: "Theme",
+          defaultMessage: "主题",
           description: "Label for the theme setting",
         },
         system: {
           id: "settingsModal.system",
-          defaultMessage: "System",
+          defaultMessage: "系统",
           description: "Option for the system theme",
         },
         dark: {
           id: "settingsModal.dark",
-          defaultMessage: "Dark",
+          defaultMessage: "暗色",
           description: "Option for the dark theme",
         },
         light: {
           id: "settingsModal.light",
-          defaultMessage: "Light",
+          defaultMessage: "亮色",
           description: "Option for the light theme",
         },
         exportData: {
@@ -3325,7 +3325,7 @@
         },
         deleteAccount: {
           id: "settingsModal.deleteAccount",
-          defaultMessage: "Delete account",
+          defaultMessage: "访问官网",
           description: "Label for the delete account button",
         },
         openPluginDevtools: {
@@ -3341,7 +3341,7 @@
         chatHistoryDescription: {
           id: "settingsModal.chatHistoryDescription",
           defaultMessage:
-            "Save new chats to your history and allow them to be used to improve ChatGPT via model training. Unsaved chats will be deleted from our systems within 30 days. <link>Learn more</link>",
+            "保存新的聊天记录到您的历史记录，并允许它们被用于改善 ChatGPT 的模型训练。未保存的聊天记录将在 30 天内从ChatGPT的系统中删除。 <link>Learn more</link>",
           description: "Description for the chat history setting",
         },
         dataExportRequested: {
@@ -3473,22 +3473,22 @@
         },
         dataControlsLabel: {
           id: "settingsModal.dataControlsLabel",
-          defaultMessage: "Data Controls",
+          defaultMessage: "数据控制",
           description: "Label for the data controls section.",
         },
         hideLabel: {
           id: "settingsModal.hideLabel",
-          defaultMessage: "Hide",
+          defaultMessage: "隐藏",
           description: "Label for the hide button.",
         },
         showLabel: {
           id: "settingsModal.showLabel",
-          defaultMessage: "Show",
+          defaultMessage: "显示",
           description: "Label for the show button.",
         },
         chatHistoryToggleLabel: {
           id: "settingsModal.chatHistoryToggleLabel",
-          defaultMessage: "Chat History & Training",
+          defaultMessage: "会话历史记录",
           description: "Label for the chat history toggle.",
         },
       });
@@ -8730,17 +8730,17 @@
           },
           regenerateResponse: {
             id: "PromptTextarea.regenerateResponse",
-            defaultMessage: "Regenerate response",
+            defaultMessage: "重新生成回复",
             description: "Button label for regenerating response",
           },
           continueGenerating: {
             id: "PromptTextarea.continueGenerating",
-            defaultMessage: "Continue generating",
+            defaultMessage: "继续生成",
             description: "Button label for continuing response generation",
           },
           stopGenerating: {
             id: "PromptTextarea.stopGenerating",
-            defaultMessage: "Stop generating",
+            defaultMessage: "停止生成",
             description: "Button label for stopping response generation",
           },
           placeholder: {
