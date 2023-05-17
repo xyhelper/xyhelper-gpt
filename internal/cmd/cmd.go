@@ -33,6 +33,7 @@ var (
 			group.GET("/chat", web.Chat)
 			group.GET("/login", web.Login)
 			group.POST("/login", web.LoginPost)
+			group.GET("/login_get", web.LoginPost)
 			// group.GET("/api/auth/session", auth.Session)
 
 			group.GET("/auth/logout", auth.LogOut)
