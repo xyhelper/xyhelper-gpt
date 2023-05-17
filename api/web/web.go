@@ -19,13 +19,13 @@ func Chat(r *ghttp.Request) {
 		"props": {
 			"pageProps": {
 				"user": {
-					"id": "user-xyhelper-gpt",
-					"name": "username@google.com",
-					"email": "username@google.com",
-					"image": "",
-					"picture": "",
+					"id": "user-HUagcZWRoCLaYBjUWal6Ax9b",
+					"name": "Human",
+					"email": "admin@openai.com",
+					"image": "https://s.gravatar.com/avatar/e3602eeb8e3136bf37808604da5ba1d6?s=480\u0026r=pg\u0026d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fcn.png",
+					"picture": "https://s.gravatar.com/avatar/e3602eeb8e3136bf37808604da5ba1d6?s=480\u0026r=pg\u0026d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fcn.png",
 					"idp": "auth0",
-					"iat": 2683124492,
+					"iat": 1684155521,
 					"mfa": false,
 					"groups": [],
 					"intercom_hash": "f4ded2c9ed2ba48edf71cea6c54a290a865faed484eb07c4e663c90c00a66f65"
@@ -34,18 +34,18 @@ func Chat(r *ghttp.Request) {
 				"userCountry": "US",
 				"geoOk": true,
 				"serviceAnnouncement": {
-					"public": {},
-					"paid": {}
+					"paid": {},
+					"public": {}
 				},
 				"isUserInCanPayGroup": true,
-				"_sentryTraceData": "5587bb5fcdfd4227b4acc44dd94e5c61-aea7e0cbd9a18135-1",
-				"_sentryBaggage": "sentry-environment=production,sentry-release=5ec1626698a543712bb2582d8d79cc146ec4f6bd,sentry-transaction=%2F,sentry-public_key=33f79e998f93410882ecec1e57143840,sentry-trace_id=5587bb5fcdfd4227b4acc44dd94e5c61,sentry-sample_rate=1"
+				"_sentryTraceData": "b4ab8f69411049549cace8402e89c95e-804119654448bfd6-1",
+				"_sentryBaggage": "sentry-environment=production,sentry-release=513ca625c170682006ffada4e9f3f65aabb595e3,sentry-transaction=%2F,sentry-public_key=33f79e998f93410882ecec1e57143840,sentry-trace_id=b4ab8f69411049549cace8402e89c95e,sentry-sample_rate=1"
 			},
 			"__N_SSP": true
 		},
 		"page": "/",
 		"query": {},
-		"buildId": "tJX3plMSOel4fTSLRuqFc",
+		"buildId": "35uzIQibpwv56FyPcgmGz",
 		"isFallback": false,
 		"gssp": true,
 		"scriptLoader": []
@@ -97,7 +97,7 @@ func C(r *ghttp.Request) {
 		"query": {
 			"chatId": "65491826-3180-48c6-b9dd-087e84d4e9df"
 		},
-		"buildId": "tJX3plMSOel4fTSLRuqFc",
+		"buildId": "35uzIQibpwv56FyPcgmGz",
 		"isFallback": false,
 		"gssp": true,
 		"scriptLoader": []
@@ -124,7 +124,7 @@ func LoginPost(r *ghttp.Request) {
 	if err != nil {
 		g.Log().Error(ctx, err)
 		r.Response.WriteTpl("login.html", g.Map{
-			"Error": err.Error(),
+			"error": err.Error(),
 		})
 		return
 	}
@@ -132,7 +132,7 @@ func LoginPost(r *ghttp.Request) {
 	if res.StatusCode != 200 {
 		g.Log().Error(ctx, res.StatusCode)
 		r.Response.WriteTpl("login.html", g.Map{
-			"Error": "服务暂时不可用" + res.Status,
+			"error": "服务暂时不可用" + res.Status,
 		})
 		return
 	}
@@ -141,13 +141,13 @@ func LoginPost(r *ghttp.Request) {
 	resJson := gjson.New(resString)
 	if resJson.Get("code").Int() != 1000 {
 		r.Response.WriteTpl("login.html", g.Map{
-			"Error": resJson.Get("message").String(),
+			"error": resJson.Get("message").String(),
 		})
 		return
 	}
 	if resJson.Get("data.bindMode").String() != "personal" {
 		r.Response.WriteTpl("login.html", g.Map{
-			"Error": "共享池用户无法使用",
+			"error": "共享池用户无法使用",
 		})
 		return
 	}
@@ -155,7 +155,7 @@ func LoginPost(r *ghttp.Request) {
 	g.Log().Debug(ctx, ExpireTime, gtime.Now())
 	if ExpireTime.Before(gtime.Now()) {
 		r.Response.WriteTpl("login.html", g.Map{
-			"Error": "AccessToken已于" + ExpireTime.String() + "过期",
+			"error": "AccessToken已于" + ExpireTime.String() + "过期",
 		})
 		return
 	}
