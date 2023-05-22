@@ -26,9 +26,16 @@ func Session(r *ghttp.Request) {
 	}
 	defer res.Close()
 	if res.StatusCode != 200 {
-		r.Response.Status = res.StatusCode
+		// r.Response.Status = res.StatusCode
+		r.Response.WriteStatusExit(res.StatusCode)
 	}
 	resJson := gjson.New(res.ReadAllString())
+	// g.Dump(resJson)
+	if resJson.Get("code").Int() != 1000 {
+		r.Cookie.Remove("access-token")
+		r.Response.WriteStatusExit(401)
+	}
+
 	resJson.Set("data.user.name", Expires.String())
 	r.Response.WriteJson(resJson.Get("data"))
 }
